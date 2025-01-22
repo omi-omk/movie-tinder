@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No More Recommendations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="recommendations-container">
+        <div class="recommendations-header">
+            <h1>No More Movies Available</h1>
+            <p>Hi {{ username }}, you've seen all the movies in our database!</p>
+            <p>Come back later when we add more movies, or start over to rate movies again.</p>
+        </div>
+
+        <div class="actions">
+            <a href="{{ url_for('index') }}" class="button">Start Over</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Swiper</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="swipe-container">
+        <div class="progress-bar">
+            <div class="progress" style="width: {{ (progress / total) * 100 }}%"></div>
+            <span class="progress-text">{{ progress }}/{{ total }}</span>
+        </div>
+
+        <div class="movie-card" id="current-movie">
+            <div class="movie-poster" style="background-image: url('{{ url_for('static', filename='posters/' + movie[1]|replace(' ', '_')|lower + '.jpg') }}')">
+                <div class="movie-info">
+                    <h2>{{ movie[1] }}</h2>
+                    <div class="movie-details">
+                        <span class="year">{{ movie[5] }}</span>
+                        <span class="rating">★ {{ "%.1f"|format(movie[4]) }}</span>
+                        <span class="genre">{{ movie[2] }}</span>
+                    </div>
+                    <div class="movie-crew">
+                        <p class="director"><strong>Director:</strong> {{ movie[6] }}</p>
+                        <p class="actors"><strong>Stars:</strong> {{ movie[7] }}</p>
+                    </div>
+                    <p class="description">{{ movie[3] }}</p>
+                    {% if movie[8] %}
+                    <div class="keywords">
+                        {% for keyword in movie[8].split(', ') %}
+                        <span class="keyword">{{ keyword }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="swipe-actions">
+                <form action="{{ url_for('swipe') }}" method="POST" class="swipe-form">
+                    <input type="hidden" name="movie_id" value="{{ movie[0] }}">
+                    <button type="submit" name="action" value="dislike" class="swipe-btn dislike">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <button type="submit" name="action" value="not_seen" class="swipe-btn not-seen">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                    <button type="submit" name="action" value="like" class="swipe-btn like">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                document.querySelector('.swipe-btn.dislike').click();
+            } else if (event.key === 'ArrowRight') {
+                document.querySelector('.swipe-btn.like').click();
+            } else if (event.key === 'ArrowUp') {
+                document.querySelector('.swipe-btn.not-seen').click();
+            }
+        });
+    </script>
+</body>
+</html>

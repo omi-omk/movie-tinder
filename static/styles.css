@@ -1,0 +1,383 @@
+/* Global Styles */
+:root {
+    --primary-color: #e50914;
+    --secondary-color: #424242;
+    --background-color: #141414;
+    --card-background: #1f1f1f;
+    --text-color: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+/* Landing Page */
+.landing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('../static/background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.landing-content {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    width: 90%;
+}
+
+.landing-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.username-form {
+    margin-top: 2rem;
+}
+
+.username-form input {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+
+.username-form button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: transform 0.2s;
+    width: 100%;
+}
+
+.username-form button:hover {
+    transform: scale(1.02);
+}
+
+/* Swipe Page */
+.swipe-container {
+    padding: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-bottom: 2rem;
+    border-radius: 2px;
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    position: absolute;
+    right: 0;
+    top: -25px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.movie-card {
+    background-color: var(--card-background);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-poster {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.movie-poster::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.9) 20%,
+        rgba(0, 0, 0, 0.7) 40%,
+        rgba(0, 0, 0, 0.4) 60%,
+        rgba(0, 0, 0, 0.1) 80%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    z-index: 1;
+}
+
+.movie-info {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.movie-info h2, .movie-info h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.movie-details {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.movie-details span {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.movie-crew {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.description {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.keyword {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 8px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+.swipe-actions {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.swipe-form {
+    display: flex;
+    gap: 2rem;
+}
+
+.swipe-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swipe-btn:hover {
+    transform: scale(1.1);
+}
+
+.like {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.dislike {
+    background-color: #f44336;
+    color: white;
+}
+
+.not-seen {
+    background-color: #2196F3;
+    color: white;
+}
+
+.error-message {
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    color: #ff3333;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Swipe Container Specific Styles */
+.swipe-container .movie-poster {
+    display: flex;
+    align-items: flex-end;  /* Align content to bottom */
+    min-height: 500px;
+}
+
+.swipe-container .movie-info {
+    padding: 30px;
+    width: 100%;
+    transform: translateY(60%);  /* Start with text mostly hidden */
+    transition: transform 0.3s ease;
+}
+
+.swipe-container .movie-poster:hover .movie-info {
+    transform: translateY(0);  /* Show full text on hover */
+}
+
+.swipe-container .movie-info h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.swipe-container .movie-details {
+    margin-bottom: 20px;
+}
+
+.swipe-container .movie-crew {
+    margin-bottom: 20px;
+}
+
+.swipe-container .description {
+    margin-bottom: 20px;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+/* Recommendations Page */
+.recommendations-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.recommendations-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.recommendation-card {
+    background-color: var(--card-background);
+    border-radius: 15px;
+    overflow: hidden;
+    height: 500px;
+    position: relative;
+}
+
+.recommendation-card .movie-poster {
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+
+.recommendation-card .movie-info {
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.95));
+    padding: 1.5rem;
+    transform: translateY(60%);
+    transition: transform 0.3s ease;
+}
+
+.recommendation-card:hover .movie-info {
+    transform: translateY(0);
+}
+
+.recommendation-card h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+}
+
+.recommendation-card .movie-details {
+    margin-bottom: 1rem;
+}
+
+.recommendation-card .description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 1rem 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.actions {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: transform 0.2s;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+.recommendations-grid .movie-poster {
+    height: 400px;
+}
+
+.recommendations-grid .movie-info {
+    padding: 20px;
+}

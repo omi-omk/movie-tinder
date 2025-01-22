@@ -1,0 +1,188 @@
+/* Global Styles */
+:root {
+    --primary-color: #ff4458;
+    --secondary-color: #424242;
+    --background-color: #f5f7fa;
+    --card-background: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    min-height: 100vh;
+}
+
+/* Landing Page */
+.landing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(rgba(20, 20, 20, 0.8), rgba(20, 20, 20, 0.8)),
+                url('/static/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.landing-content {
+    text-align: center;
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.landing-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.username-form {
+    margin-top: 2rem;
+}
+
+.username-form input {
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 25px;
+    width: 300px;
+    margin-bottom: 1rem;
+}
+
+.username-form button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 25px;
+    background-color: white;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.username-form button:hover {
+    transform: scale(1.05);
+}
+
+/* Swipe Page */
+.swipe-container {
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.movie-card {
+    background-color: var(--card-background);
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.movie-content {
+    text-align: center;
+}
+
+.movie-details {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.movie-details span {
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+}
+
+.swipe-actions {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.swipe-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.swipe-btn:hover {
+    transform: scale(1.1);
+}
+
+.like {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.dislike {
+    background-color: #f44336;
+    color: white;
+}
+
+.not-seen {
+    background-color: #2196F3;
+    color: white;
+}
+
+/* Recommendations Page */
+.recommendations-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.recommendations-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.recommendation-card {
+    background-color: var(--card-background);
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.actions {
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: transform 0.2s;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}

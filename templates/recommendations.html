@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Movie Recommendations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="recommendations-container">
+        <div class="recommendations-header">
+            <h1>Your Movie Recommendations</h1>
+            <p>Based on your movie preferences, we think you'll love these:</p>
+        </div>
+
+        <div class="recommendations-grid">
+            {% for movie in movies %}
+            <div class="recommendation-card">
+                <div class="movie-poster" style="background-image: url('{{ url_for('static', filename='posters/' + movie[1]|replace(' ', '_')|lower + '.jpg') }}')">
+                    <div class="movie-info">
+                        <h3>{{ movie[1] }}</h3>
+                        <div class="movie-details">
+                            <span class="year">{{ movie[5] }}</span>
+                            <span class="rating">★ {{ "%.1f"|format(movie[4]) }}</span>
+                            <span class="genre">{{ movie[2] }}</span>
+                        </div>
+                        <div class="movie-crew">
+                            <p class="director"><strong>Director:</strong> {{ movie[6] }}</p>
+                            <p class="actors"><strong>Stars:</strong> {{ movie[7] }}</p>
+                        </div>
+                        <p class="description">{{ movie[3] }}</p>
+                        {% if movie[8] %}
+                        <div class="keywords">
+                            {% for keyword in movie[8].split(', ') %}
+                            <span class="keyword">{{ keyword }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="actions">
+            <a href="{{ url_for('index') }}" class="button">Start Over</a>
+        </div>
+    </div>
+</body>
+</html>
