@@ -23,7 +23,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('../static/background.webp');
+                url('../static/background.jpg');
     background-size: cover;
     background-position: center;
 }
