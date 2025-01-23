@@ -32,7 +32,7 @@ class IMDbScraper:
                 time.sleep(random.uniform(2, 5))
 
     def download_poster(self, poster_url, title):
-        filename = title.replace(' ', '_').lower() + '.jpg'
+        filename = title.replace(' ', '_').lower() + '.webp'
         poster_path = os.path.join('static', 'posters')
         os.makedirs(os.path.join('static', 'posters'), exist_ok=True)
 
@@ -40,7 +40,7 @@ class IMDbScraper:
             response = requests.get(poster_url)
             if response.status_code == 200:
                 # Create a valid filename
-                filename = f"{title.replace(' ', '_')}.jpg"
+                filename = f"{title.replace(' ', '_')}.webp"
                 filepath = os.path.join(poster_path, filename)
                 with open(filepath, 'wb') as f:
                     f.write(response.content)

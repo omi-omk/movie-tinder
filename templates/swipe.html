@@ -15,7 +15,7 @@
         </div>
 
         <div class="movie-card" id="current-movie">
-            <div class="movie-poster" style="background-image: url('{{ url_for('static', filename='posters/' + movie[1]|replace(' ', '_')|lower + '.jpg') }}')">
+            <div class="movie-poster" style="background-image: url('{{ url_for('static', filename='posters/' + movie[1]|replace(' ', '_')|lower + '.webp') }}')">
                 <div class="movie-info">
                     <h2>{{ movie[1] }}</h2>
                     <div class="movie-details">
