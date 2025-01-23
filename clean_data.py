@@ -19,7 +19,7 @@ def clean_database():
         'director': 'Unknown Director',
         'actors': 'Unknown Cast',
         'keywords': '',
-        'poster': 'default_poster.webp'
+        'poster': 'default_poster.jpg'
     }
     
     # Clean each movie
